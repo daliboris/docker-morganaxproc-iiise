@@ -4,7 +4,7 @@ Repository for Dockerfiles for [MorganaXProx-IIIse](https://www.xml-project.com/
 
 Docker images are available in Docker Hub in [daliboris/morganaxproc-iiise](https://hub.docker.com/r/daliboris/morganaxproc-iiise) repository.
 
-This repository is maintained by Boris Lehečka, Communication via GitHub issues or pull requests is welcome. 
+This repository is maintained by Boris Lehečka, Your interaction via GitHub issues or pull requests is welcome. 
 
 Dockerfiles are prepared for different versions of [Java](https://github.com/zulu-openjdk/zulu-openjdk), [MorganaXProc-IIIse](https://sourceforge.net/projects/morganaxproc-iiise/files/) and [Saxon-HE](https://github.com/Saxonica/Saxon-HE.git). Eeach Dockerfile is stored in separate folder and its tag is composed from following parts connected with hyphen, for example `1.6.15-saxonhe-12.8-jre-11`:
 - version of MorganaXProc-IIIse (for example `1.6.5`)
