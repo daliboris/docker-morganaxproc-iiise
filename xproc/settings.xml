@@ -1,24 +1,24 @@
 <settings xmlns="https://www.daliboris.cz/ns/xproc/docker/settings/1.0">
     <images>
-        <image name="JAVA_BASE_IMAGE_TAG" docker="azul/zulu-openjdk:[[version]]" url="https://github.com/zulu-openjdk/zulu-openjdk">
-            <license name="BSD-3-Clause-Clear" url="https://github.com/zulu-openjdk/zulu-openjdk/blob/master/LICENSE.txt">BSD 3-Clause Clear License</license>
+        <image name="Azul Zulu OpenJDK" docker="azul/zulu-openjdk:[[version]]" url="https://github.com/zulu-openjdk/zulu-openjdk" acronym="JAVA_BASE_IMAGE_TAG">
+            <license url="https://github.com/zulu-openjdk/zulu-openjdk/blob/master/LICENSE.txt" acronym="BSD-3-Clause-Clear">BSD 3-Clause Clear License</license>
             <copyright>Copyright (c) 2005–2023, Azul Systems, Incorporated</copyright>
-            <version base="8" tag="8u462-8.88-jre" java="8" />
-            <version base="11" tag="11.0.28-11.82-jre" java="11" />
-            <version base="17" tag="17.0.16-17.60-jre" java="17" />
             <version base="21" tag="21.0.8-21.44-jre" java="21" />
+            <version base="17" tag="17.0.16-17.60-jre" java="17" />
+            <version base="11" tag="11.0.28-11.82-jre" java="11" />
+            <version base="8" tag="8u462-8.88-jre" java="8" />
         </image>
-        <image name="DEPENDENCIES_IMAGE_TAG" docker="gradle:[[version]]">
-            <license OSI="approved" name="Apache-2.0" url="https://github.com/gradle/gradle/blob/master/LICENSE">Apache License, Version 2.0</license>
-            <version base="7" tag="7.6.6-jdk8-ubi-minimal" java="8" />
-            <version base="8" tag="8.14.3-jdk11-ubi-minimal" java="11" />
-            <version base="8" tag="8.14.3-jdk17-ubi-minimal" java="17" />
+        <image docker="gradle:[[version]]" acronym="DEPENDENCIES_IMAGE_TAG">
+            <license OSI="approved" url="https://github.com/gradle/gradle/blob/master/LICENSE" acronym="Apache-2.0">Apache License, Version 2.0</license>
             <version base="8" tag="8.14.3-jdk21-ubi-minimal" java="21" />
+            <version base="8" tag="8.14.3-jdk17-ubi-minimal" java="17" />
+            <version base="8" tag="8.14.3-jdk11-ubi-minimal" java="11" />
+            <version base="7" tag="7.6.6-jdk8-ubi-minimal" java="8" />
         </image>
     </images>
     <runtimes>
-        <runtime type="morgana" git-url="https://sourceforge.net/projects/morganaxproc-iiise/files/MorganaXProc-IIIse-[[version]]" download-url="https://sourceforge.net/projects/morganaxproc-iiise/files/MorganaXProc-IIIse-[[version]]/MorganaXProc-IIIse-[[version]].zip/download">
-            <license OSI="approved" name="GPL-3.0-only" url="https://www.gnu.org/licenses/gpl-3.0.en.html#license-text">GNU General Public License v3.0 only</license>
+        <runtime name="MorganaXProc-IIIse" type="morgana" git-url="https://sourceforge.net/projects/morganaxproc-iiise/files/MorganaXProc-IIIse-[[version]]" download-url="https://sourceforge.net/projects/morganaxproc-iiise/files/MorganaXProc-IIIse-[[version]]/MorganaXProc-IIIse-[[version]].zip/download">
+            <license OSI="approved" url="https://www.gnu.org/licenses/gpl-3.0.en.html#license-text" acronym="GPL-3.0-only">GNU General Public License v3.0 only</license>
             <copyright>Copyright 2011-2025 by &lt;xml-project /&gt; Achim Berndzen</copyright>
             <version base="1.6" tag="1.6.15" />
             <version base="1.6" tag="1.6.12" />
@@ -29,15 +29,15 @@
         </runtime>
     </runtimes>
     <additions>
-        <addition type="xslt" name="saxonhe" format="jar" git-url="https://github.com/Saxonica/Saxon-HE.git" download-url="https://github.com/Saxonica/Saxon-HE/releases/download/SaxonHE[[url-version]]/SaxonHE[[url-version]]J.zip">
-            <license OSI="approved" name="MPL-2.0" url="https://www.mozilla.org/en-US/MPL/2.0/">Mozilla Public License 2.0</license>
+        <addition name="Saxon-HE" type="xslt" format="jar" git-url="https://github.com/Saxonica/Saxon-HE.git" download-url="https://github.com/Saxonica/Saxon-HE/releases/download/SaxonHE[[url-version]]/SaxonHE[[url-version]]J.zip" acronym="saxonhe">
+            <license OSI="approved" url="https://www.mozilla.org/en-US/MPL/2.0/" acronym="MPL-2.0">Mozilla Public License 2.0</license>
             <version base="12" tag="12.8" />
             <version base="12" tag="12.6" />
             <version base="12" tag="12.5" />
             <version base="12" tag="12.4" />
         </addition>
-        <addition type="ixml" name="markup-blitz" format="git" docker-repository="daliboris/markup-blitz" info="https://github.com/GuntherRademacher/markup-blitz" git-url="https://github.com/GuntherRademacher/markup-blitz.git">
-            <license OSI="approved" name="Apache-2.0" url="https://www.apache.org/licenses/LICENSE-2.0">Mozilla Public License version 2.0</license>
+        <addition name="Markup Blitz" type="ixml" format="git" docker-repository="daliboris/markup-blitz" info="https://github.com/GuntherRademacher/markup-blitz" git-url="https://github.com/GuntherRademacher/markup-blitz.git" acronym="markup-blitz">
+            <license OSI="approved" url="https://www.apache.org/licenses/LICENSE-2.0" acronym="Apache-2.0">Mozilla Public License version 2.0</license>
             <copyright url="https://github.com/GuntherRademacher/markup-blitz?tab=readme-ov-file#license">Copyright (c) 2023-2025 Gunther Rademacher.</copyright>
             <version base="1" tag="1.9" />
             <version base="1" tag="1.8" />
@@ -45,8 +45,8 @@
             <version base="1" tag="1.6" />
             <version base="1" tag="1.5" />
         </addition>
-        <addition type="ixml" name="coffeefilter" format="jar" info="https://docs.nineml.org/current/coffeefilter/" git-url="https://github.com/nineml/coffeefilter.git" download-url="https://github.com/nineml/coffeefilter/releases/download/[[version]]/coffeefilter-[[version]].zip">
-            <license OSI="approved" name="MIT" url="https://github.com/nineml/nineml/?tab=MIT-1-ov-file#readme">MIT License</license>
+        <addition name="CoffeeFilter" type="ixml" format="jar" info="https://docs.nineml.org/current/coffeefilter/" git-url="https://github.com/nineml/coffeefilter.git" download-url="https://github.com/nineml/coffeefilter/releases/download/[[version]]/coffeefilter-[[version]].zip" acronym="coffeefilter">
+            <license OSI="approved" url="https://github.com/nineml/nineml/?tab=MIT-1-ov-file#readme" acronym="MIT">MIT License</license>
             <copyright url="https://github.com/nineml/nineml/?tab=MIT-1-ov-file#readme">Copyright (c) 2022-2023 nineml</copyright>
             <version base="3.2" tag="3.2.9" />
             <version base="3.2" tag="3.2.7" />
@@ -54,8 +54,8 @@
             <version base="3.2" tag="3.2.5" />
             <version base="3.2" tag="3.2.4" />
         </addition>
-        <addition type="ixml" name="coffeegrinder" format="jar" info="https://docs.nineml.org/current/coffeegrinder/" git-url="https://github.com/nineml/coffeegrinder.git" download-url="https://github.com/nineml/coffeegrinder/releases/download/[[version]]/coffeegrinder-[[version]].zip">
-            <license OSI="approved" name="MIT" url="https://github.com/nineml/nineml/?tab=MIT-1-ov-file#readme">MIT License</license>
+        <addition name="CoffeeGrinder" type="ixml" format="jar" info="https://docs.nineml.org/current/coffeegrinder/" git-url="https://github.com/nineml/coffeegrinder.git" download-url="https://github.com/nineml/coffeegrinder/releases/download/[[version]]/coffeegrinder-[[version]].zip" acronym="coffeegrinder">
+            <license OSI="approved" url="https://github.com/nineml/nineml/?tab=MIT-1-ov-file#readme" acronym="MIT">MIT License</license>
             <copyright url="https://github.com/nineml/nineml/?tab=MIT-1-ov-file#readme">Copyright (c) 2022-2023 nineml</copyright>
             <version base="3.2" tag="3.2.9" />
             <version base="3.2" tag="3.2.7" />
@@ -63,8 +63,8 @@
             <version base="3.2" tag="3.2.5" />
             <version base="3.2" tag="3.2.4" />
         </addition>
-        <addition type="ixml" name="cofeepot" format="jar" info="https://docs.nineml.org/current/coffeepot/" git-url="https://github.com/nineml/coffeepot.git"  download-url="https://github.com/nineml/coffeepot/releases/download/[[version]]/coffeepot-[[version]].zip">
-            <license OSI="approved" name="MIT" url="https://github.com/nineml/nineml/?tab=MIT-1-ov-file#readme">MIT License</license>
+        <addition name="CofeePot" type="ixml" format="jar" info="https://docs.nineml.org/current/coffeepot/" git-url="https://github.com/nineml/coffeepot.git"  download-url="https://github.com/nineml/coffeepot/releases/download/[[version]]/coffeepot-[[version]].zip" acronym="cofeepot">
+            <license OSI="approved" url="https://github.com/nineml/nineml/?tab=MIT-1-ov-file#readme" acronym="MIT">MIT License</license>
             <copyright url="https://github.com/nineml/nineml/?tab=MIT-1-ov-file#readme">Copyright (c) 2022-2023 nineml</copyright>
             <version base="3.2" tag="3.2.9" />
             <version base="3.2" tag="3.2.7" />
@@ -72,8 +72,8 @@
             <version base="3.2" tag="3.2.5" />
             <version base="3.2" tag="3.2.4" />
         </addition>
-        <addition type="fop" name="apache-fop" format="jar" download-url="https://archive.apache.org/dist/xmlgraphics/fop/binaries/fop-[[version]]-bin.tar.gz">
-            <license OSI="approved" name="Apache-2.0" url="https://www.apache.org/licenses/LICENSE-2.0">Apache License, Version 2.0</license>
+        <addition name="Apache FOP" type="fop" format="jar" download-url="https://archive.apache.org/dist/xmlgraphics/fop/binaries/fop-[[version]]-bin.tar.gz" acronym="apache-fop">
+            <license OSI="approved" url="https://www.apache.org/licenses/LICENSE-2.0" acronym="Apache-2.0">Apache License, Version 2.0</license>
             <copyright url="https://xmlgraphics.apache.org/fop/">Copyright © 2016 The Apache Software Foundation</copyright>
             <version base="2" tag="2.11" />
             <version base="2" tag="2.10" />
@@ -81,8 +81,8 @@
             <version base="2" tag="2.8" />
             <version base="2" tag="2.7" />
         </addition>
-        <addition type="validation" name="schxslt" format="jar" git-url="https://codeberg.org/SchXslt/schxslt.git" download-url="https://codeberg.org/SchXslt/schxslt/releases/download/v[[version]]/schxslt-[[version]].jar">
-            <license OSI="approved" name="MIT" url="https://github.com/nineml/nineml/?tab=MIT-1-ov-file#readme">MIT License</license>
+        <addition name="SchXslt" type="validation" format="jar" git-url="https://codeberg.org/SchXslt/schxslt.git" download-url="https://codeberg.org/SchXslt/schxslt/releases/download/v[[version]]/schxslt-[[version]].jar" acronym="schxslt">
+            <license OSI="approved" url="https://github.com/nineml/nineml/?tab=MIT-1-ov-file#readme" acronym="MIT">MIT License</license>
             <copyright url="https://codeberg.org/SchXslt/schxslt/src/branch/main/LICENSE">Copyright (c) 2018-2021 David Maus</copyright>
             <version base="1" tag="1.10.1" />
             <version base="1" tag="1.10" />
@@ -90,20 +90,20 @@
             <version base="1" tag="1.9.4" />
             <version base="1" tag="1.9.3" />
         </addition>
-        <addition type="validation" name="schxslt2" format="xslt" git-url="https://codeberg.org/SchXslt/schxslt2.git"  download-url="https://codeberg.org/SchXslt/schxslt2/releases/download/v[[version]]/schxslt2-v[[version]].zip">
-            <license OSI="approved" name="MIT" url="https://github.com/nineml/nineml/?tab=MIT-1-ov-file#readme">MIT License</license>
+        <addition name="SchXslt2" type="validation" format="xslt" git-url="https://codeberg.org/SchXslt/schxslt2.git"  download-url="https://codeberg.org/SchXslt/schxslt2/releases/download/v[[version]]/schxslt2-v[[version]].zip" acronym="schxslt2">
+            <license OSI="approved" url="https://github.com/nineml/nineml/?tab=MIT-1-ov-file#readme" acronym="MIT">MIT License</license>
             <copyright url="https://codeberg.org/SchXslt/schxslt2/src/branch/main/LICENSE">Copyright (c) David Maus</copyright>
             <version base="1" tag="1.4.4" />
             <version base="1" tag="1.3.5" />
         </addition>
-        <addition type="validation" name="xerces" format="jar" download-url="https://dlcdn.apache.org/xerces/j/binaries/Xerces-J-bin.[[version]]-xml-schema-1.1.zip">
+        <addition name="Xerces" type="validation" format="jar" download-url="https://dlcdn.apache.org/xerces/j/binaries/Xerces-J-bin.[[version]]-xml-schema-1.1.zip" acronym="xerces">
             <copyright url="https://xmlgraphics.apache.org/fop/">Copyright © 1999-2022 The Apache Software Foundation</copyright>
-            <license OSI="approved" name="Apache-2.0" url="https://www.apache.org/licenses/LICENSE-2.0">Apache License, Version 2.0</license>
+            <license OSI="approved" url="https://www.apache.org/licenses/LICENSE-2.0" acronym="Apache-2.0">Apache License, Version 2.0</license>
             <version base="2" tag="2.12.2" />
         </addition>
-        <addition type="validation" name="xerces" format="jar" download-url="https://archive.apache.org/dist/xml/xerces-j/binaries/Xerces-J-bin.[[version]].zip">
+        <addition name="Xerces" type="validation" format="jar" download-url="https://archive.apache.org/dist/xml/xerces-j/binaries/Xerces-J-bin.[[version]].zip" acronym="xerces">
             <copyright url="https://xmlgraphics.apache.org/fop/">Copyright © 1999-2022 The Apache Software Foundation</copyright>
-            <license OSI="approved" name="Apache-2.0" url="https://www.apache.org/licenses/LICENSE-2.0">Apache License, Version 2.0</license>
+            <license OSI="approved" url="https://www.apache.org/licenses/LICENSE-2.0" acronym="Apache-2.0">Apache License, Version 2.0</license>
             <version base="2" tag="2.9.0" />
         </addition>
     </additions>

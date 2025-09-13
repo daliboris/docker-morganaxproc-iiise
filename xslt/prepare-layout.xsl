@@ -27,10 +27,10 @@
   <xsl:template match="/">
     <xsl:variable name="versions" select="if(exists($application-version)) then $application-version else .//xds:runtime[@type='morgana']/xds:version/@tag"/>
     <xsl:variable name="versions" select="if($latest-only) then $versions[1] else $versions"/>
-    <xsl:variable name="saxons" select=".//xds:addition[@type='xslt'][@name='saxonhe']/xds:version/@tag"/>
+    <xsl:variable name="saxons" select=".//xds:addition[@type='xslt'][@acronym='saxonhe']/xds:version/@tag"/>
     <xsl:variable name="saxons" select="if($latest-only) then $saxons[1] else $saxons"/>
     
-    <xsl:variable name="javas" select=".//xds:image[@name='JAVA_BASE_IMAGE_TAG']/xds:version/@java"/>
+    <xsl:variable name="javas" select=".//xds:image[@acronym='JAVA_BASE_IMAGE_TAG']/xds:version/@java"/>
     <xsl:variable name="created" select="format-dateTime(current-dateTime(),'[Y0001]-[M01]-[D01]T[H01]:[m01]:[s01][Z]')"/>
     <xdl:layout xmlns:xdl="https://www.daliboris.cz/ns/xproc/docker/layout/1.0"
       root="{$output-directory}"
