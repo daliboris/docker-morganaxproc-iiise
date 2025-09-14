@@ -20,6 +20,7 @@
         <runtime name="MorganaXProc-IIIse" type="morgana" git-url="https://sourceforge.net/projects/morganaxproc-iiise/files/MorganaXProc-IIIse-[[version]]" download-url="https://sourceforge.net/projects/morganaxproc-iiise/files/MorganaXProc-IIIse-[[version]]/MorganaXProc-IIIse-[[version]].zip/download">
             <license OSI="approved" url="https://www.gnu.org/licenses/gpl-3.0.en.html#license-text" acronym="GPL-3.0-only">GNU General Public License v3.0 only</license>
             <copyright>Copyright 2011-2025 by &lt;xml-project /&gt; Achim Berndzen</copyright>
+            <version base="1.6" tag="1.7.1" />
             <version base="1.6" tag="1.6.15" />
             <version base="1.6" tag="1.6.12" />
             <version base="1.6" tag="1.6.10" />
