@@ -53,7 +53,7 @@
                   <xsl:for-each select="$images">
                     <xsl:variable name="image" select="."/>
                     <xsl:variable name="image-version" select="$image/xds:version[@java = $java]"/>
-                    <xdl:set arg="{$image/@name}" value="{$image-version/@tag}" />
+                    <xdl:set arg="{$image/@acronym}" value="{$image-version/@tag}" />
                   </xsl:for-each>
                   <xdl:set label="org.opencontainers.image.created" value="{$created}" />
                   <xdl:content />
