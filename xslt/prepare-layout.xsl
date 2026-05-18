@@ -2,6 +2,7 @@
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
   xmlns:xs="http://www.w3.org/2001/XMLSchema"
   xmlns:math="http://www.w3.org/2005/xpath-functions/math"
+  xmlns:map="http://www.w3.org/2005/xpath-functions/map"  
   xmlns:xd="http://www.oxygenxml.com/ns/doc/xsl"
   xmlns:xds="https://www.daliboris.cz/ns/xproc/docker/settings/1.0"
   xmlns:xdl="https://www.daliboris.cz/ns/xproc/docker/layout/1.0"
@@ -29,6 +30,9 @@
     <xsl:variable name="versions" select="if($latest-only) then $versions[1] else $versions"/>
     <xsl:variable name="saxons" select=".//xds:addition[@type='xslt'][@acronym='saxonhe']/xds:version/@tag"/>
     <xsl:variable name="saxons" select="if($latest-only) then $saxons[1] else $saxons"/>
+    <xsl:variable name="additions" select="map:merge(for $addition in .//xds:addition return 
+        let $name := translate($addition/@name, ' ', '') => upper-case() 
+        return map { $name : $addition/xds:version[1]/@tag })"/>
     
     <xsl:variable name="javas" select=".//xds:image[@acronym='JAVA_BASE_IMAGE_TAG']/xds:version/@java"/>
     <xsl:variable name="created" select="format-dateTime(current-dateTime(),'[Y0001]-[M01]-[D01]T[H01]:[m01]:[s01][Z]')"/>
@@ -50,6 +54,10 @@
                   <xdl:set arg="JAVA_VERSION" value="{$java}" />
                   <xdl:set arg="MORGANA_VERSION" value="{$version}" />
                   <xdl:set arg="SAXON_VERSION" value="{$saxon}" />
+                  <xsl:for-each select="map:keys($additions)">
+                    <xsl:variable name="key" select="."/>
+                    <xdl:set arg="{$key}_VERSION" value="{$additions?($key)}" />
+                  </xsl:for-each>
                   <xsl:for-each select="$images">
                     <xsl:variable name="image" select="."/>
                     <xsl:variable name="image-version" select="$image/xds:version[@java = $java]"/>
