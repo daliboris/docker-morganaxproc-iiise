@@ -4,10 +4,10 @@
         <image name="Azul Zulu OpenJDK" docker="azul/zulu-openjdk:[[version]]" url="https://github.com/zulu-openjdk/zulu-openjdk" acronym="JAVA_BASE_IMAGE_TAG">
             <license url="https://github.com/zulu-openjdk/zulu-openjdk/blob/master/LICENSE.txt" acronym="BSD-3-Clause-Clear">BSD 3-Clause Clear License</license>
             <copyright>Copyright (c) 2005–2023, Azul Systems, Incorporated</copyright>
-            <version base="21" tag="21.0.8-21.44-jre" java="21" />
-            <version base="17" tag="17.0.16-17.60-jre" java="17" />
-            <version base="11" tag="11.0.28-11.82-jre" java="11" />
-            <version base="8" tag="8u462-8.88-jre" java="8" />
+            <version base="21" tag="21.0.10-21.48-jre" java="21" />
+            <version base="17" tag="17.0.17-17.62-jre" java="17" />
+            <version base="11" tag="11.0.31-11.88-jre" java="11" />
+            <version base="8" tag="8u492-8.94-jre"     java="8" />
         </image>
         <image docker="gradle:[[version]]" acronym="DEPENDENCIES_IMAGE_TAG">
             <license OSI="approved" url="https://github.com/gradle/gradle/blob/master/LICENSE" acronym="Apache-2.0">Apache License, Version 2.0</license>
