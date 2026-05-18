@@ -124,7 +124,7 @@ LABEL org.opencontainers.image.version="1.0.0"
 # Provides the name of the image reference, such as a tag or digest, for example 7.0.11-debian-11-r20.
 LABEL org.opencontainers.image.ref.name="${MORGANA_VERSION}-saxonhe-${SAXON_VERSION}-jre-${JAVA_VERSION}"
 # Specifies the creation time of the image in ISO 8601 format.
-LABEL org.opencontainers.image.created=2025-09-14T17:25:46+02:00
+LABEL org.opencontainers.image.created=2026-05-18T10:41:19+02:00
 # https://spdx.org/licenses/
 # Indicates the license(s) under which the image, ie. the software and applications included in the image, is distributed (e.g., MIT).
 LABEL org.opencontainers.image.licenses="GPL-3.0-only, Apache-2.0, BSD-3-Clause-Clear, MPL-2.0, MIT"
@@ -149,7 +149,8 @@ COPY --from=markup-blitz-image /opt/ixml/markup-blitz.jar /opt/xproc/xml-project
 
 
 # copy local config files
-COPY config/config*.xml /config/
+# COPY config/config*.xml /config/
+COPY config*.xml /config/
 
 
 # add all needed directories to CLASSPATH
