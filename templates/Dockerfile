@@ -6,7 +6,7 @@ ARG DEPENDENCIES_IMAGE_TAG=8.14.3-jdk11-ubi-minimal
 
 ARG JAVA_VERSION=11
 ARG MORGANA_VERSION=1.6.15
-ARG SAXON_VERSION=12.8
+ARG SAXON_VERSION=12.9
 
 ARG COFFEEGRINDER_VERSION=3.2.9
 ARG COFFEEFILTER_VERSION=3.2.9
@@ -60,13 +60,20 @@ RUN SAXON_URL_VERSION=$(echo "${SAXON_VERSION}" | sed 's/\./-/g') && \
 
 # extracting zip files creates following directories
 
+# /opt/xproc/xml-project/MorganaXProc-IIIse-${MORGANA_VERSION}
 # /opt/xproc/schxslt-${SCHXSLT_VERSION}/1.0 
 # /opt/xproc/schxslt-${SCHXSLT_VERSION}/2.0
 # /opt/xproc/schxslt2/schxslt2-v${SCHXSLT2_VERSION}
 # /opt/xproc/schematron/xslt1
 # /opt/xproc/schematron/xslt2
 
-RUN unzip /tmp/MorganaXProc-IIIse-${MORGANA_VERSION}.zip -d /opt/xproc/xml-project && \
+# MorganaXProc-IIIse-${MORGANA_VERSION}.zip can contain MorganaXProc-IIIse-${MORGANA_VERSION} directory with content or content itself
+
+RUN unzip /tmp/MorganaXProc-IIIse-${MORGANA_VERSION}.zip -d /opt/xproc/xml-project/MorganaXProc-IIIse-${MORGANA_VERSION} && \
+    if [ -d /opt/xproc/xml-project/MorganaXProc-IIIse-${MORGANA_VERSION}/MorganaXProc-IIIse-${MORGANA_VERSION} ]; then \
+    rm -rf /opt/xproc/xml-project/MorganaXProc-IIIse-${MORGANA_VERSION} && \
+    unzip /tmp/MorganaXProc-IIIse-${MORGANA_VERSION}.zip -d /opt/xproc/xml-project; \
+    fi && \
     unzip /tmp/SaxonHE${SAXON_VERSION}.zip -d /tmp/saxon && \
     unzip /tmp/CoffeeGrinder-${COFFEEGRINDER_VERSION}.zip -d /opt/nineml && \
     unzip /tmp/CoffeeFilter-${COFFEEFILTER_VERSION}.zip -d /opt/nineml && \
@@ -150,6 +157,7 @@ COPY --from=markup-blitz-image /opt/ixml/markup-blitz.jar /opt/xproc/xml-project
 
 # copy local config files
 COPY config/config*.xml /config/
+# COPY config*.xml /config/
 
 
 # add all needed directories to CLASSPATH
