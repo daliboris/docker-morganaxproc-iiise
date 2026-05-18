@@ -1,3 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
 <settings xmlns="https://www.daliboris.cz/ns/xproc/docker/settings/1.0">
     <images>
         <image name="Azul Zulu OpenJDK" docker="azul/zulu-openjdk:[[version]]" url="https://github.com/zulu-openjdk/zulu-openjdk" acronym="JAVA_BASE_IMAGE_TAG">
@@ -17,62 +18,183 @@
         </image>
     </images>
     <runtimes>
-        <runtime name="MorganaXProc-IIIse" type="morgana" git-url="https://sourceforge.net/projects/morganaxproc-iiise/files/MorganaXProc-IIIse-[[version]]" download-url="https://sourceforge.net/projects/morganaxproc-iiise/files/MorganaXProc-IIIse-[[version]]/MorganaXProc-IIIse-[[version]].zip/download">
+        <runtime name="MorganaXProc-IIIse" type="morgana" git-url="https://sourceforge.net/projects/morganaxproc-iiise/files/MorganaXProc-IIIse-[[version]]"
+            download-url="https://sourceforge.net/projects/morganaxproc-iiise/files/MorganaXProc-IIIse-[[version]]/MorganaXProc-IIIse-[[version]].zip/download" acronym="morganaxproc-iiise">
             <license OSI="approved" url="https://www.gnu.org/licenses/gpl-3.0.en.html#license-text" acronym="GPL-3.0-only">GNU General Public License v3.0 only</license>
             <copyright>Copyright 2011-2025 by &lt;xml-project /&gt; Achim Berndzen</copyright>
-            <version base="1.6" tag="1.7.1" />
-            <version base="1.6" tag="1.6.15" />
-            <version base="1.6" tag="1.6.12" />
-            <version base="1.6" tag="1.6.10" />
-            <version base="1.6" tag="1.6.7" />
-            <version base="1.6" tag="1.6.4" />
-            <version base="1.6" tag="1.6" />
+            <version base="1.8" tag="1.8.9" date="2026-05-13T13:40:32Z" />
+            <version base="1.8" tag="1.8.7" date="2026-04-19T07:07:06Z" />
+            <version base="1.8" tag="1.8.6" date="2026-04-15T16:29:02Z" />
+            <version base="1.8" tag="1.8.4" date="2026-03-15T08:37:50Z" />
+            <version base="1.8" tag="1.8.2" date="2026-02-16T07:48:27Z" />
+            <version base="1.8" tag="1.8" date="2026-01-15T16:23:20Z" />
+            <version base="1.7" tag="1.7.6" date="2025-12-20T12:57:59Z" />
+            <version base="1.7" tag="1.7.4" date="2025-11-16T16:16:36Z" />
+            <version base="1.7" tag="1.7.2" date="2025-10-15T16:51:22Z" />
+            <version base="1.7" tag="1.7.1" date="2025-09-14T08:34:06Z" />
+            <version base="1.6" tag="1.6.15" date="2025-08-15T15:50:50Z" />
+            <version base="1.6" tag="1.6.12" date="2025-07-13T10:33:21Z" />
+            <version base="1.6" tag="1.6.10" date="2025-06-14T14:45:33Z" />
+            <version base="1.6" tag="1.6.7" date="2025-05-15T14:25:58Z" />
+            <version base="1.6" tag="1.6.4" date="2025-04-13T12:58:08Z" />
+            <version base="1.6" tag="1.6" date="2025-03-12T07:10:51Z" />
+            <version base="1.5" tag="1.5" date="2025-02-15T08:56:20Z" />
+            <version base="1.4" tag="1.4.10" date="2025-01-26T15:43:37Z" />
+            <version base="1.4" tag="1.4.9" date="2025-01-16T11:49:40Z" />
+            <version base="1.4" tag="1.4.8" date="2025-01-10T16:31:36Z" />
+            <version base="1.4" tag="1.4.5" date="2024-11-18T18:42:24Z" />
+            <version base="1.4" tag="1.4.4" date="2024-11-16T14:56:26Z" />
+            <version base="1.4" tag="1.4.1" date="2024-10-06T14:58:38Z" />
+            <version base="1.4" tag="1.4" date="2024-08-26T06:37:29Z" />
+            <version base="1.3" tag="1.3.11" date="2024-07-15T14:24:05Z" />
+            <version base="1.3" tag="1.3.10" date="2024-06-15T16:46:41Z" />
+            <version base="1.3" tag="1.3.8" date="2024-05-14T14:17:48Z" />
+            <version base="1.3" tag="1.3.7" date="2024-04-02T08:29:02Z" />
+            <version base="1.3" tag="1.3.6" date="2024-03-03T16:14:28Z" />
+            <version base="1.3" tag="1.3.4" date="2024-02-01T14:45:26Z" />
+            <version base="1.3" tag="1.3.2" date="2024-01-02T14:16:55Z" />
+            <version base="1.3" tag="1.3" date="2023-12-01T15:16:08Z" />
+            <version base="1.2" tag="1.2.3" date="2023-10-29T13:27:05Z" />
+            <version base="1.2" tag="1.2.2" date="2023-10-01T10:02:59Z" />
+            <version base="1.2" tag="1.2" date="2023-08-13T14:46:02Z" />
+            <version base="1.1" tag="1.1" date="2023-01-16T16:40:23Z" />
+            <version base="1.0" tag="1.0" date="2022-09-16T09:18:21Z" />
         </runtime>
     </runtimes>
     <additions>
         <addition name="Saxon-HE" type="xslt" format="jar" git-url="https://github.com/Saxonica/Saxon-HE.git" download-url="https://github.com/Saxonica/Saxon-HE/releases/download/SaxonHE[[url-version]]/SaxonHE[[url-version]]J.zip" acronym="saxonhe">
             <license OSI="approved" url="https://www.mozilla.org/en-US/MPL/2.0/" acronym="MPL-2.0">Mozilla Public License 2.0</license>
-            <version base="12" tag="12.9" />
-            <version base="12" tag="12.8" />
-            <version base="12" tag="12.6" />
-            <version base="12" tag="12.5" />
-            <version base="12" tag="12.4" />
+            <version base="12" tag="12.9" date="2025-09-12T16:16:02Z" />
+            <version base="12" tag="12.8" date="2025-07-03T16:35:37Z" />
+            <version base="11" tag="11.7" date="2025-07-03T16:35:18Z" />
+            <version base="12" tag="12.7" date="2025-05-16T09:14:20Z" />
+            <version base="12" tag="12.6" date="2025-05-02T13:47:11Z" />
+            <version base="12" tag="12.5" date="2024-07-02T10:19:37Z" />
+            <version base="12" tag="12.4" date="2023-12-02T10:52:56Z" />
+            <version base="11" tag="11.6" date="2023-08-24T12:04:59Z" />
+            <version base="12" tag="12.3" date="2023-07-04T15:56:49Z" />
+            <version base="12" tag="12.2" date="2023-05-19T10:19:06Z" />
+            <version base="11" tag="11.5" date="2023-05-19T10:16:41Z" />
+            <version base="10" tag="10.9" date="2023-05-19T10:15:54Z" />
         </addition>
         <addition name="Markup Blitz" type="ixml" format="git" docker-repository="daliboris/markup-blitz" info="https://github.com/GuntherRademacher/markup-blitz" git-url="https://github.com/GuntherRademacher/markup-blitz.git" acronym="markup-blitz">
             <license OSI="approved" url="https://www.apache.org/licenses/LICENSE-2.0" acronym="Apache-2.0">Mozilla Public License version 2.0</license>
             <copyright url="https://github.com/GuntherRademacher/markup-blitz?tab=readme-ov-file#license">Copyright (c) 2023-2025 Gunther Rademacher.</copyright>
-            <version base="1" tag="1.9" />
-            <version base="1" tag="1.8" />
-            <version base="1" tag="1.7" />
-            <version base="1" tag="1.6" />
-            <version base="1" tag="1.5" />
+            <version base="1" tag="1.10" date="2025-11-07T10:58:48Z" />
+            <version base="1" tag="1.9" date="2025-06-26T08:18:22Z" />
+            <version base="1" tag="1.8" date="2025-04-10T23:37:05Z" />
+            <version base="1" tag="1.6" date="2025-01-29T22:29:40Z" />
+            <version base="1" tag="1.5" date="2024-12-01T08:07:49Z" />
+            <version base="1" tag="1.4" date="2024-07-02T19:32:52Z" />
+            <version base="1" tag="1.3" date="2024-03-04T17:00:31Z" />
+            <version base="1" tag="1.2" date="2024-01-12T20:03:48Z" />
+            <version base="1" tag="1.1" date="2023-11-02T19:03:20Z" />
+            <version base="1" tag="1.0" date="2023-10-01T21:18:20Z" />
         </addition>
-        <addition name="CoffeeFilter" type="ixml" format="jar" info="https://docs.nineml.org/current/coffeefilter/" git-url="https://github.com/nineml/coffeefilter.git" download-url="https://github.com/nineml/coffeefilter/releases/download/[[version]]/coffeefilter-[[version]].zip" acronym="coffeefilter">
+        <addition name="CoffeeFilter" type="ixml" format="jar" info="https://docs.nineml.org/current/coffeefilter/" git-url="https://github.com/nineml/coffeefilter.git"
+            download-url="https://github.com/nineml/coffeefilter/releases/download/[[version]]/coffeefilter-[[version]].zip" acronym="coffeefilter">
             <license OSI="approved" url="https://github.com/nineml/nineml/?tab=MIT-1-ov-file#readme" acronym="MIT">MIT License</license>
             <copyright url="https://github.com/nineml/nineml/?tab=MIT-1-ov-file#readme">Copyright (c) 2022-2023 nineml</copyright>
-            <version base="3.2" tag="3.2.9" />
-            <version base="3.2" tag="3.2.7" />
-            <version base="3.2" tag="3.2.6" />
-            <version base="3.2" tag="3.2.5" />
-            <version base="3.2" tag="3.2.4" />
+            <version base="3.3" tag="3.3.4" date="2023-07-23T09:47:52Z" />
+            <version base="3.3" tag="3.3.3" date="2023-07-23T09:47:52Z" />
+            <version base="3.3" tag="3.3.2" date="2023-07-23T09:47:52Z" />
+            <version base="3.3" tag="3.3.1" date="2023-07-23T09:47:52Z" />
+            <version base="3.3" tag="3.3.0" date="2023-07-23T09:47:52Z" />
+            <version base="3.2" tag="3.2.9" date="2023-07-23T09:47:52Z" />
+            <version base="3.2" tag="3.2.7" date="2023-07-23T09:47:52Z" />
+            <version base="3.2" tag="3.2.6" date="2023-07-23T09:47:52Z" />
+            <version base="3.2" tag="3.2.5" date="2023-07-23T09:47:52Z" />
+            <version base="3.2" tag="3.2.4" date="2023-07-23T09:47:52Z" />
+            <version base="3.2" tag="3.2.3" date="2023-07-23T09:47:52Z" />
+            <version base="3.2" tag="3.2.2" date="2023-07-23T09:47:52Z" />
+            <version base="3.2" tag="3.2.1" date="2023-07-23T09:47:52Z" />
+            <version base="3.2" tag="3.2.0" date="2023-07-23T09:47:52Z" />
+            <version base="3.1" tag="3.1.0" date="2023-07-23T09:47:52Z" />
+            <version base="3.0" tag="3.0.0" date="2023-07-23T09:47:52Z" />
+            <version base="3.0" tag="3.0.0" date="2023-07-23T09:47:52Z" />
+            <version base="3.0" tag="3.0.0" date="2023-07-23T09:47:52Z" />
+            <version base="3.0" tag="3.0.0" date="2023-07-22T13:42:42Z" />
+            <version base="3.0" tag="3.0.0" date="2023-07-22T13:43:01Z" />
+            <version base="3.0" tag="3.0.0" date="2023-07-21T08:00:14Z" />
+            <version base="3.0" tag="3.0.0" date="2023-07-19T20:24:03Z" />
+            <version base="3.0" tag="3.0.0" date="2023-07-18T18:22:49Z" />
+            <version base="3.0" tag="3.0.0" date="2023-07-12T12:06:19Z" />
+            <version base="3.0" tag="3.0.0" date="2023-07-11T19:02:59Z" />
+            <version base="3.0" tag="3.0.0" date="2023-07-09T17:40:56Z" />
+            <version base="3.0" tag="3.0.0" date="2023-07-09T08:30:40Z" />
+            <version base="3.0" tag="3.0.0" date="2023-07-02T15:31:07Z" />
+            <version base="2.2" tag="2.2.3" date="2023-06-15T15:44:30Z" />
+            <version base="2.2" tag="2.2.2" date="2023-06-15T13:47:05Z" />
         </addition>
-        <addition name="CoffeeGrinder" type="ixml" format="jar" info="https://docs.nineml.org/current/coffeegrinder/" git-url="https://github.com/nineml/coffeegrinder.git" download-url="https://github.com/nineml/coffeegrinder/releases/download/[[version]]/coffeegrinder-[[version]].zip" acronym="coffeegrinder">
+        <addition name="CoffeeGrinder" type="ixml" format="jar" info="https://docs.nineml.org/current/coffeegrinder/" git-url="https://github.com/nineml/coffeegrinder.git"
+            download-url="https://github.com/nineml/coffeegrinder/releases/download/[[version]]/coffeegrinder-[[version]].zip" acronym="coffeegrinder">
             <license OSI="approved" url="https://github.com/nineml/nineml/?tab=MIT-1-ov-file#readme" acronym="MIT">MIT License</license>
             <copyright url="https://github.com/nineml/nineml/?tab=MIT-1-ov-file#readme">Copyright (c) 2022-2023 nineml</copyright>
-            <version base="3.2" tag="3.2.9" />
-            <version base="3.2" tag="3.2.7" />
-            <version base="3.2" tag="3.2.6" />
-            <version base="3.2" tag="3.2.5" />
-            <version base="3.2" tag="3.2.4" />
+            <version base="3.3" tag="3.3.4" date="2023-07-23T09:52:31Z" />
+            <version base="3.3" tag="3.3.3" date="2023-07-23T09:52:31Z" />
+            <version base="3.3" tag="3.3.2" date="2023-07-23T09:52:31Z" />
+            <version base="3.3" tag="3.3.1" date="2023-07-23T09:52:31Z" />
+            <version base="3.3" tag="3.3.0" date="2023-07-23T09:52:31Z" />
+            <version base="3.2" tag="3.2.9" date="2023-07-23T09:52:31Z" />
+            <version base="3.2" tag="3.2.7" date="2023-07-23T09:52:31Z" />
+            <version base="3.2" tag="3.2.6" date="2023-07-23T09:52:31Z" />
+            <version base="3.2" tag="3.2.5" date="2023-07-23T09:52:31Z" />
+            <version base="3.2" tag="3.2.4" date="2023-07-23T09:52:31Z" />
+            <version base="3.2" tag="3.2.3" date="2023-07-23T09:52:31Z" />
+            <version base="3.2" tag="3.2.2" date="2023-07-23T09:52:31Z" />
+            <version base="3.2" tag="3.2.1" date="2023-07-23T09:52:31Z" />
+            <version base="3.2" tag="3.2.0" date="2023-07-23T09:52:31Z" />
+            <version base="3.1" tag="3.1.0" date="2023-07-23T09:52:31Z" />
+            <version base="3.0" tag="3.0.0" date="2023-07-23T09:52:31Z" />
+            <version base="3.0" tag="3.0.0" date="2023-07-23T09:52:31Z" />
+            <version base="3.0" tag="3.0.0" date="2023-07-23T09:52:31Z" />
+            <version base="3.0" tag="3.0.0" date="2023-07-22T11:36:11Z" />
+            <version base="3.0" tag="3.0.0" date="2023-07-22T12:24:45Z" />
+            <version base="3.0" tag="3.0.0" date="2023-07-21T07:24:39Z" />
+            <version base="3.0" tag="3.0.0" date="2023-07-19T19:59:56Z" />
+            <version base="3.0" tag="3.0.0" date="2023-07-18T16:56:15Z" />
+            <version base="3.0" tag="3.0.0" date="2023-07-12T09:15:44Z" />
+            <version base="3.0" tag="3.0.0" date="2023-07-11T17:59:13Z" />
+            <version base="3.0" tag="3.0.0" date="2023-07-09T17:23:09Z" />
+            <version base="3.0" tag="3.0.0" date="2023-07-09T07:43:24Z" />
+            <version base="3.0" tag="3.0.0" date="2023-07-02T14:41:52Z" />
+            <version base="2.2" tag="2.2.2" date="2023-06-15T13:11:10Z" />
+            <version base="2.2" tag="2.2.1" date="2023-05-17T11:01:36Z" />
         </addition>
-        <addition name="CofeePot" type="ixml" format="jar" info="https://docs.nineml.org/current/coffeepot/" git-url="https://github.com/nineml/coffeepot.git"  download-url="https://github.com/nineml/coffeepot/releases/download/[[version]]/coffeepot-[[version]].zip" acronym="cofeepot">
+        <addition name="CoffeePot" type="ixml" format="jar" info="https://docs.nineml.org/current/coffeepot/" git-url="https://github.com/nineml/coffeepot.git" download-url="https://github.com/nineml/coffeepot/releases/download/[[version]]/coffeepot-[[version]].zip"
+            acronym="coffeepot">
             <license OSI="approved" url="https://github.com/nineml/nineml/?tab=MIT-1-ov-file#readme" acronym="MIT">MIT License</license>
             <copyright url="https://github.com/nineml/nineml/?tab=MIT-1-ov-file#readme">Copyright (c) 2022-2023 nineml</copyright>
-            <version base="3.2" tag="3.2.9" />
-            <version base="3.2" tag="3.2.7" />
-            <version base="3.2" tag="3.2.6" />
-            <version base="3.2" tag="3.2.5" />
-            <version base="3.2" tag="3.2.4" />
+            <version base="3.3" tag="3.3.4" date="2023-07-23T09:57:25Z" />
+            <version base="3.3" tag="3.3.3" date="2023-07-23T09:57:25Z" />
+            <version base="3.3" tag="3.3.2" date="2023-07-23T09:57:25Z" />
+            <version base="3.3" tag="3.3.1" date="2023-07-23T09:57:25Z" />
+            <version base="3.3" tag="3.3.0" date="2023-07-23T09:57:25Z" />
+            <version base="3.2" tag="3.2.9" date="2023-07-23T09:57:25Z" />
+            <version base="3.2" tag="3.2.7" date="2023-07-23T09:57:25Z" />
+            <version base="3.2" tag="3.2.6" date="2023-07-23T09:57:25Z" />
+            <version base="3.2" tag="3.2.5" date="2023-07-23T09:57:25Z" />
+            <version base="3.2" tag="3.2.4" date="2023-07-23T09:57:25Z" />
+            <version base="3.2" tag="3.2.3" date="2023-07-23T09:57:25Z" />
+            <version base="3.2" tag="3.2.2" date="2023-07-23T09:57:25Z" />
+            <version base="3.2" tag="3.2.1" date="2023-07-23T09:57:25Z" />
+            <version base="3.2" tag="3.2.0" date="2023-07-23T09:57:25Z" />
+            <version base="3.1" tag="3.1.0" date="2023-07-23T09:57:25Z" />
+            <version base="3.0" tag="3.0.0" date="2023-07-23T09:57:25Z" />
+            <version base="3.0" tag="3.0.0" date="2023-07-23T09:57:25Z" />
+            <version base="3.0" tag="3.0.0" date="2023-07-23T09:57:25Z" />
+            <version base="3.0" tag="3.0.0" date="2023-07-22T16:09:08Z" />
+            <version base="3.0" tag="3.0.0" date="2023-07-22T16:09:32Z" />
+            <version base="3.0" tag="3.0.0" date="2023-07-21T10:10:58Z" />
+            <version base="3.0" tag="3.0.0" date="2023-07-20T06:47:06Z" />
+            <version base="3.0" tag="3.0.0" date="2023-07-18T19:48:19Z" />
+            <version base="3.0" tag="3.0.0" date="2023-07-12T14:48:05Z" />
+            <version base="3.0" tag="3.0.0" date="2023-07-11T20:17:19Z" />
+            <version base="3.0" tag="3.0.0" date="2023-07-09T18:35:13Z" />
+            <version base="3.0" tag="3.0.0" date="2023-07-09T09:51:16Z" />
+            <version base="3.0" tag="3.0.0" date="2023-07-03T13:46:56Z" />
+            <version base="2.2" tag="2.2.3" date="2023-06-15T16:51:43Z" />
+            <version base="2.2" tag="2.2.2" date="2023-05-17T18:53:55Z" />
         </addition>
         <addition name="Apache FOP" type="fop" format="jar" download-url="https://archive.apache.org/dist/xmlgraphics/fop/binaries/fop-[[version]]-bin.tar.gz" acronym="apache-fop">
             <license OSI="approved" url="https://www.apache.org/licenses/LICENSE-2.0" acronym="Apache-2.0">Apache License, Version 2.0</license>
@@ -86,17 +208,56 @@
         <addition name="SchXslt" type="validation" format="jar" git-url="https://codeberg.org/SchXslt/schxslt.git" download-url="https://codeberg.org/SchXslt/schxslt/releases/download/v[[version]]/schxslt-[[version]].jar" acronym="schxslt">
             <license OSI="approved" url="https://github.com/nineml/nineml/?tab=MIT-1-ov-file#readme" acronym="MIT">MIT License</license>
             <copyright url="https://codeberg.org/SchXslt/schxslt/src/branch/main/LICENSE">Copyright (c) 2018-2021 David Maus</copyright>
-            <version base="1" tag="1.10.1" />
-            <version base="1" tag="1.10" />
-            <version base="1" tag="1.9.5" />
-            <version base="1" tag="1.9.4" />
-            <version base="1" tag="1.9.3" />
+            <version base="1.10" tag="1.10.1" date="2024-10-18T16:51:57+02:00" />
+            <version base="1.10" tag="1.10" date="2024-07-24T20:01:57+02:00" />
+            <version base="1.9" tag="1.9.5" date="2023-02-17T16:03:56+01:00" />
+            <version base="1.9" tag="1.9.4" date="2022-10-18T21:08:23+02:00" />
+            <version base="1.9" tag="1.9.3" date="2022-09-21T21:06:37+02:00" />
+            <version base="1.9" tag="1.9.2" date="2022-09-14T13:11:23+02:00" />
+            <version base="1.9" tag="1.9.1" date="2022-06-10T16:17:59+02:00" />
+            <version base="1.9" tag="1.9" date="2022-06-01T10:13:02+02:00" />
+            <version base="1.8" tag="1.8.6" date="2022-01-02T19:07:15+01:00" />
+            <version base="1.8" tag="1.8.5" date="2021-12-02T09:05:49+01:00" />
+            <version base="1.8" tag="1.8.4" date="2021-10-01T07:20:58+02:00" />
+            <version base="1.8" tag="1.8.3" date="2021-09-30T13:39:23+02:00" />
+            <version base="1.8" tag="1.8.2" date="2021-09-12T11:53:30+02:00" />
+            <version base="1.8" tag="1.8.1" date="2021-09-10T07:41:22+02:00" />
+            <version base="1.8" tag="1.8" date="2021-08-30T15:08:02+02:00" />
+            <version base="1.7" tag="1.7.4" date="2021-07-25T09:47:30+02:00" />
+            <version base="1.7" tag="1.7.3" date="2021-07-20T08:21:08+02:00" />
+            <version base="1.7" tag="1.7.2" date="2021-05-11T20:34:14+02:00" />
+            <version base="1.7" tag="1.7.1" date="2021-04-07T12:45:00+02:00" />
+            <version base="1.7" tag="1.7" date="2021-03-28T10:49:23+02:00" />
+            <version base="1.6" tag="1.6.2" date="2021-01-18T08:00:29+01:00" />
+            <version base="1.6" tag="1.6.1" date="2021-01-17T17:21:35+01:00" />
+            <version base="1.6" tag="1.6" date="2021-01-16T15:55:37+01:00" />
+            <version base="1.5" tag="1.5.2" date="2020-10-04T15:21:11+02:00" />
+            <version base="1.5" tag="1.5.1" date="2020-09-28T09:53:22+02:00" />
+            <version base="1.5" tag="1.5" date="2020-09-27T11:14:25+02:00" />
+            <version base="1.4" tag="1.4.7" date="2020-09-11T16:10:14+02:00" />
+            <version base="1.5-rc1" tag="1.5-rc1" date="2020-09-08T15:26:54+02:00" />
+            <version base="1.4" tag="1.4.6" date="2020-07-08T14:47:11+02:00" />
+            <version base="1.4" tag="1.4.5" date="2020-04-07T08:54:04+02:00" />
         </addition>
-        <addition name="SchXslt2" type="validation" format="xslt" git-url="https://codeberg.org/SchXslt/schxslt2.git"  download-url="https://codeberg.org/SchXslt/schxslt2/releases/download/v[[version]]/schxslt2-v[[version]].zip" acronym="schxslt2">
+        <addition name="SchXslt2" type="validation" format="xslt" git-url="https://codeberg.org/SchXslt/schxslt2.git" download-url="https://codeberg.org/SchXslt/schxslt2/releases/download/v[[version]]/schxslt2-v[[version]].zip" acronym="schxslt2">
             <license OSI="approved" url="https://github.com/nineml/nineml/?tab=MIT-1-ov-file#readme" acronym="MIT">MIT License</license>
             <copyright url="https://codeberg.org/SchXslt/schxslt2/src/branch/main/LICENSE">Copyright (c) David Maus</copyright>
-            <version base="1" tag="1.4.4" />
-            <version base="1" tag="1.3.5" />
+            <version base="1.10" tag="1.10.3" date="2026-04-14T17:39:05+02:00" />
+            <version base="1.10" tag="1.10.2" date="2026-04-09T07:58:15+02:00" />
+            <version base="1.10" tag="1.10.1" date="2026-04-03T10:02:12+02:00" />
+            <version base="1.10" tag="1.10" date="2026-04-02T16:30:07+02:00" />
+            <version base="1.9" tag="1.9" date="2026-02-27T10:22:14+01:00" />
+            <version base="1.8" tag="1.8" date="2026-01-26T20:30:53+01:00" />
+            <version base="1.7" tag="1.7.2" date="2026-01-02T12:30:20+01:00" />
+            <version base="1.7" tag="1.7.1" date="2025-11-26T08:04:30+01:00" />
+            <version base="1.7" tag="1.7" date="2025-11-25T07:47:15+01:00" />
+            <version base="1.6" tag="1.6" date="2025-11-06T19:21:19+01:00" />
+            <version base="1.5" tag="1.5" date="2025-09-22T20:18:42+02:00" />
+            <version base="1.4" tag="1.4.4" date="2025-07-19T13:29:11+02:00" />
+            <version base="1.4" tag="1.4.2" date="2025-07-15T15:02:44+02:00" />
+            <version base="1.4" tag="1.4.1" date="2025-07-14T16:03:47+02:00" />
+            <version base="1.4" tag="1.4" date="2025-06-29T10:13:06+02:00" />
+            <version base="1.3" tag="1.3.5" date="2025-06-06T08:21:08+02:00" />
         </addition>
         <addition name="Xerces" type="validation" format="jar" download-url="https://dlcdn.apache.org/xerces/j/binaries/Xerces-J-bin.[[version]]-xml-schema-1.1.zip" acronym="xerces">
             <copyright url="https://xmlgraphics.apache.org/fop/">Copyright © 1999-2022 The Apache Software Foundation</copyright>
