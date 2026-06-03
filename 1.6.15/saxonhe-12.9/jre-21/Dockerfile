@@ -1,19 +1,19 @@
 # tag: daliboris/morganaxproc-iiise:${MORGANA_VERSION}-saxonhe-${SAXON_VERSION}-jre-${JAVA_VERSION}
 # tag: daliboris/morganaxproc-iiise:1.6.15-saxonhe-12.8-jre-11
 
-ARG JAVA_BASE_IMAGE_TAG=21.0.8-21.44-jre
+ARG JAVA_BASE_IMAGE_TAG=21.0.10-21.48-jre
 ARG DEPENDENCIES_IMAGE_TAG=8.14.3-jdk21-ubi-minimal
 
 ARG JAVA_VERSION=21
 ARG MORGANA_VERSION=1.6.15
 ARG SAXON_VERSION=12.9
 
-ARG COFFEEGRINDER_VERSION=3.2.9
-ARG COFFEEFILTER_VERSION=3.2.9
+ARG COFFEEGRINDER_VERSION=3.3.4
+ARG COFFEEFILTER_VERSION=3.3.4
 ARG SCHXSLT_VERSION=1.10.1
-ARG SCHXSLT2_VERSION=1.4.4
+ARG SCHXSLT2_VERSION=1.10.3
 ARG SCHEMATRON_VERSION=2020-10-01
-ARG MARKUPBLITZ_VERSION=1.9
+ARG MARKUPBLITZ_VERSION=1.10
 
 FROM daliboris/markup-blitz:${MARKUPBLITZ_VERSION:-1.9}-jre-${JAVA_VERSION:-11} AS markup-blitz-image
 
@@ -60,13 +60,20 @@ RUN SAXON_URL_VERSION=$(echo "${SAXON_VERSION}" | sed 's/\./-/g') && \
 
 # extracting zip files creates following directories
 
+# /opt/xproc/xml-project/MorganaXProc-IIIse-${MORGANA_VERSION}
 # /opt/xproc/schxslt-${SCHXSLT_VERSION}/1.0 
 # /opt/xproc/schxslt-${SCHXSLT_VERSION}/2.0
 # /opt/xproc/schxslt2/schxslt2-v${SCHXSLT2_VERSION}
 # /opt/xproc/schematron/xslt1
 # /opt/xproc/schematron/xslt2
 
-RUN unzip /tmp/MorganaXProc-IIIse-${MORGANA_VERSION}.zip -d /opt/xproc/xml-project && \
+# MorganaXProc-IIIse-${MORGANA_VERSION}.zip can contain MorganaXProc-IIIse-${MORGANA_VERSION} directory with content or content itself
+
+RUN unzip /tmp/MorganaXProc-IIIse-${MORGANA_VERSION}.zip -d /opt/xproc/xml-project/MorganaXProc-IIIse-${MORGANA_VERSION} && \
+    if [ -d /opt/xproc/xml-project/MorganaXProc-IIIse-${MORGANA_VERSION}/MorganaXProc-IIIse-${MORGANA_VERSION} ]; then \
+    rm -rf /opt/xproc/xml-project/MorganaXProc-IIIse-${MORGANA_VERSION} && \
+    unzip /tmp/MorganaXProc-IIIse-${MORGANA_VERSION}.zip -d /opt/xproc/xml-project; \
+    fi && \
     unzip /tmp/SaxonHE${SAXON_VERSION}.zip -d /tmp/saxon && \
     unzip /tmp/CoffeeGrinder-${COFFEEGRINDER_VERSION}.zip -d /opt/nineml && \
     unzip /tmp/CoffeeFilter-${COFFEEFILTER_VERSION}.zip -d /opt/nineml && \
@@ -124,7 +131,7 @@ LABEL org.opencontainers.image.version="1.0.0"
 # Provides the name of the image reference, such as a tag or digest, for example 7.0.11-debian-11-r20.
 LABEL org.opencontainers.image.ref.name="${MORGANA_VERSION}-saxonhe-${SAXON_VERSION}-jre-${JAVA_VERSION}"
 # Specifies the creation time of the image in ISO 8601 format.
-LABEL org.opencontainers.image.created=2025-09-15T23:23:23+02:00
+LABEL org.opencontainers.image.created=2026-06-03T19:08:53+02:00
 # https://spdx.org/licenses/
 # Indicates the license(s) under which the image, ie. the software and applications included in the image, is distributed (e.g., MIT).
 LABEL org.opencontainers.image.licenses="GPL-3.0-only, Apache-2.0, BSD-3-Clause-Clear, MPL-2.0, MIT"
@@ -137,7 +144,7 @@ LABEL org.opencontainers.image.description="Docker image for XProc 3.x pipelines
 RUN mkdir /data && \
     mkdir /config
 
-# Set working directory
+# Make data directory accessible from the outside
 VOLUME /data
 
 # the destination must be a directory (must end with a slash /)
@@ -150,7 +157,10 @@ COPY --from=markup-blitz-image /opt/ixml/markup-blitz.jar /opt/xproc/xml-project
 
 # copy local config files
 COPY config/config*.xml /config/
+# COPY config*.xml /config/
 
+# copy wrapper script
+COPY config/entrypoint.sh /opt/xproc/
 
 # add all needed directories to CLASSPATH
 ENV CLASSPATH=/opt/xproc/xml-project/MorganaXProc-IIIse-${MORGANA_VERSION}:/opt/xproc/xml-project/MorganaXProc-IIIse-${MORGANA_VERSION}/MorganaXProc-IIIse_lib
@@ -161,14 +171,11 @@ ENV PATH="/opt/xproc/xml-project/MorganaXProc-IIIse-${MORGANA_VERSION}:/opt/xpro
 # Set runnable
 RUN chmod +x /opt/xproc/xml-project/MorganaXProc-IIIse-${MORGANA_VERSION}/Morgana.sh && \
     echo 'export PATH="/opt/xproc/xml-project/MorganaXProc-IIIse-${MORGANA_VERSION}:$PATH"' >> ~/.bashrc && \
-    cp /config/config.xml /opt/xproc/xml-project/MorganaXProc-IIIse-${MORGANA_VERSION}/
+    cp /config/config.xml /opt/xproc/xml-project/MorganaXProc-IIIse-${MORGANA_VERSION}/ && \
+    chmod +x /opt/xproc/entrypoint.sh
 
 # set working directory
 WORKDIR /data
 
-# Use bash for Morgana.sh file
-# ENTRYPOINT ["bash", "-c", "Morgana.sh", "-config=/config/config.xml"]
-
-# ENTRYPOINT ["bash", "-c"]
-ENTRYPOINT ["bash"]
-# CMD ["Morgana.sh", "-config=/config/config.xml", "Diagnostics.xpl"]
+# use entry point to make container interactive or run-and-forget
+ENTRYPOINT ["entrypoint.sh"]
