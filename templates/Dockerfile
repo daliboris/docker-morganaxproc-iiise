@@ -166,7 +166,7 @@ COPY config/entrypoint.sh /opt/xproc/
 ENV CLASSPATH=/opt/xproc/xml-project/MorganaXProc-IIIse-${MORGANA_VERSION}:/opt/xproc/xml-project/MorganaXProc-IIIse-${MORGANA_VERSION}/MorganaXProc-IIIse_lib
 
 # add Morgana's directories to PATH
-ENV PATH="/opt/xproc/xml-project/MorganaXProc-IIIse-${MORGANA_VERSION}:/opt/xproc/xml-project/MorganaXProc-IIIse-${MORGANA_VERSION}/MorganaXProc-IIIse_lib:$PATH"
+ENV PATH="/opt/xproc:/opt/xproc/xml-project/MorganaXProc-IIIse-${MORGANA_VERSION}:/opt/xproc/xml-project/MorganaXProc-IIIse-${MORGANA_VERSION}/MorganaXProc-IIIse_lib:$PATH"
 
 # Set runnable
 RUN chmod +x /opt/xproc/xml-project/MorganaXProc-IIIse-${MORGANA_VERSION}/Morgana.sh && \
