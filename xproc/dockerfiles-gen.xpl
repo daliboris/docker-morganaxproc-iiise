@@ -188,6 +188,7 @@
    
    <p:file-copy href="../templates/config.xml" target="{$output-path}/config/config.xml" />
    <p:file-copy href="../templates/config-mb.xml" target="{$output-path}/config/config-mb.xml" />
+   <p:file-copy href="../templates/entrypoint.sh" target="{$output-path}/config/entrypoint.sh" />
    
   </p:viewport>
   
