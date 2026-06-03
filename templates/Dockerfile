@@ -144,7 +144,7 @@ LABEL org.opencontainers.image.description="Docker image for XProc 3.x pipelines
 RUN mkdir /data && \
     mkdir /config
 
-# Set working directory
+# Make data directory accessible from the outside
 VOLUME /data
 
 # the destination must be a directory (must end with a slash /)
@@ -159,6 +159,8 @@ COPY --from=markup-blitz-image /opt/ixml/markup-blitz.jar /opt/xproc/xml-project
 COPY config/config*.xml /config/
 # COPY config*.xml /config/
 
+# copy wrapper script
+COPY config/entrypoint.sh /opt/xproc/
 
 # add all needed directories to CLASSPATH
 ENV CLASSPATH=/opt/xproc/xml-project/MorganaXProc-IIIse-${MORGANA_VERSION}:/opt/xproc/xml-project/MorganaXProc-IIIse-${MORGANA_VERSION}/MorganaXProc-IIIse_lib
@@ -169,14 +171,11 @@ ENV PATH="/opt/xproc/xml-project/MorganaXProc-IIIse-${MORGANA_VERSION}:/opt/xpro
 # Set runnable
 RUN chmod +x /opt/xproc/xml-project/MorganaXProc-IIIse-${MORGANA_VERSION}/Morgana.sh && \
     echo 'export PATH="/opt/xproc/xml-project/MorganaXProc-IIIse-${MORGANA_VERSION}:$PATH"' >> ~/.bashrc && \
-    cp /config/config.xml /opt/xproc/xml-project/MorganaXProc-IIIse-${MORGANA_VERSION}/
+    cp /config/config.xml /opt/xproc/xml-project/MorganaXProc-IIIse-${MORGANA_VERSION}/ && \
+    chmod +x /opt/xproc/entrypoint.sh
 
 # set working directory
 WORKDIR /data
 
-# Use bash for Morgana.sh file
-# ENTRYPOINT ["bash", "-c", "Morgana.sh", "-config=/config/config.xml"]
-
-# ENTRYPOINT ["bash", "-c"]
-ENTRYPOINT ["bash"]
-# CMD ["Morgana.sh", "-config=/config/config.xml", "Diagnostics.xpl"]
+# use entry point to make container interactive or run-and-forget
+ENTRYPOINT ["entrypoint.sh"]
