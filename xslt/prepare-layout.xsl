@@ -19,6 +19,8 @@
   <xsl:param name="application-version" as="xs:string*" />
   <xsl:param name="latest-only" as="xs:boolean" select="true()" />
   <xsl:param name="output-directory" as="xs:anyURI?" />
+  <xsl:variable name="java-versions" select="('21', '17')"/>
+  <xsl:variable name="saxon-versions" select="('12.8', '12.9')"/>
   
   <xsl:mode on-no-match="shallow-skip" />
   <xsl:output method="xml" indent="yes" />
@@ -28,13 +30,13 @@
   <xsl:template match="/">
     <xsl:variable name="versions" select="if(exists($application-version)) then $application-version else .//xds:runtime[@type='morgana']/xds:version/@tag"/>
     <xsl:variable name="versions" select="if($latest-only) then $versions[1] else $versions"/>
-    <xsl:variable name="saxons" select=".//xds:addition[@type='xslt'][@acronym='saxonhe']/xds:version/@tag"/>
+    <xsl:variable name="saxons" select=".//xds:addition[@type='xslt'][@acronym='saxonhe']/xds:version/@tag[. = $saxon-versions]"/>
     <xsl:variable name="saxons" select="if($latest-only) then $saxons[1] else $saxons"/>
     <xsl:variable name="additions" select="map:merge(for $addition in .//xds:addition return 
         let $name := translate($addition/@name, ' ', '') => upper-case() 
         return map { $name : $addition/xds:version[1]/@tag })"/>
     
-    <xsl:variable name="javas" select=".//xds:image[@acronym='JAVA_BASE_IMAGE_TAG']/xds:version/@java"/>
+    <xsl:variable name="javas" select=".//xds:image[@acronym='JAVA_BASE_IMAGE_TAG']/xds:version/@java[. = $java-versions]"/>
     <xsl:variable name="created" select="format-dateTime(current-dateTime(),'[Y0001]-[M01]-[D01]T[H01]:[m01]:[s01][Z]')"/>
     <xdl:layout xmlns:xdl="https://www.daliboris.cz/ns/xproc/docker/layout/1.0"
       root="{$output-directory}"
