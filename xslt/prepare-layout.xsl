@@ -68,7 +68,7 @@
                   <xdl:set label="org.opencontainers.image.created" value="{$created}" />
                   <xdl:content />
                   <xdl:build>cd <xsl:value-of select="replace($output-directory || $path, '^file:/+', '') => replace('/', '\\')"/></xdl:build>
-                  <xdl:build>docker build --file Dockerfile --tag daliboris/morganaxproc-iiise:<xsl:value-of select="$tag"/> .</xdl:build>
+                  <xdl:build>docker build --platform linux/amd64,linux/arm64 --file Dockerfile --tag daliboris/morganaxproc-iiise:<xsl:value-of select="$tag"/> .</xdl:build>
                   <xdl:build>docker push daliboris/morganaxproc-iiise:<xsl:value-of select="$tag"/></xdl:build>
                 </xdl:directory>
               </xsl:for-each>
